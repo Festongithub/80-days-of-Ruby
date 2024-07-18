@@ -95,6 +95,16 @@ puts"This ticket is for: #{ticket.date}, at #{ticket.venue}." +
 end
 
 
+request = gets.chomp
+
+if ticket.respond_to?(request)
+  puts ticket.send(request)
+else
+  puts "No such information available"
+end
+
+
+
 orange = Object.new
 
 
@@ -107,3 +117,17 @@ def orange.site
 
 end
 
+if orange.respond_to?("talk")
+  orange.talk
+else
+  puts "Orange don't talk!"
+end
+
+
+puts "The orange is found in #{orange.site} at a price of #{orange.price} $"
+
+puts "Orange id is: #{orange.object_id}"
+
+message = "Strings of message"
+print("Message id is: #{message.object_id}")
+#puts Object.new.methods.sort
